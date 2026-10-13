@@ -28,3 +28,11 @@ Libros-app
 - **`js/state.js`**: Gestión centralizada del estado de navegación, filtros de búsqueda, autenticación y accesibilidad.
 - **`js/ui.js`**: Generador de componentes de interfaz (Pantalla de inicio de sesión con vista dividida, panel principal de navegación, catálogo de libros, perfil académico, eventos y modales).
 - **`js/main.js`**: Punto de entrada, orquestación de eventos y reactividad.
+
+## Despliegue en AWS
+
+| Integrante | URL del sitio | Bucket publico | Bucket privado |
+|---|---|---|---|
+| Jhon Lara | http://cuc-bp-eq67-lara-sitio-2026.s3-website-us-east-1.amazonaws.com | cuc-bp-eq67-lara-sitio-2026 | cuc-bp-eq67-lara-privado-2026 |
+
+Se realizó la migración del sitio web estatico de Netlify a AWS S3 con el fin de centralizar la infraestructura del proyecto en AWS, optimizar los costos de alojamiento y aprovechar el control que ofrecen las politicas de Bucket de S3. Adémas esto facilita la integración directa con otros servicios de AWS en las siguientes fases del proyecto desarrollado.
