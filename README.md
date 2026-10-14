@@ -1,7 +1,7 @@
 # Libros-app - Plataforma de Intercambio Académico CUC
 # Jhon Lara
 # Marcos Montenegro
-# Nicol Bredford
+# Nicol Bradford
 
 Aplicación web diseñada con HTML5, CSS3 y JavaScript vanilla para el intercambio y préstamo de textos académicos en la Universidad de la Costa (CUC).
 
@@ -36,5 +36,7 @@ Libros-app
 | Jhon Lara | http://cuc-bp-eq67-lara-sitio-2026.s3-website-us-east-1.amazonaws.com | cuc-bp-eq67-lara-sitio-2026 | cuc-bp-eq67-lara-privado-2026 |
 
 | Marcos Montenegro | http://cuc-bp-eq67-montenegro-sitio-2026.s3-website-us-east-1.amazonaws.com/ | cuc-bp-eq67-montenegro-sitio-2026 | cuc-bp-eq67-montenegro-privado-2026 |
+
+| Nicol Bradford | http://cuc-bp-eq67-bradford-sitio-2026.s3-website-us-east-1.amazonaws.com | cuc-bp-eq67-bradford-sitio-2026 | cuc-bp-eq67-bradford-privado-2026 |
 
 Se realizó la migración del sitio web estatico de Netlify a AWS S3 con el fin de centralizar la infraestructura del proyecto en AWS, optimizar los costos de alojamiento y aprovechar el control que ofrecen las politicas de Bucket de S3. Adémas esto facilita la integración directa con otros servicios de AWS en las siguientes fases del proyecto desarrollado.
