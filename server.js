@@ -1,5 +1,10 @@
 const http = require('http');
-const d = [4.5, 3.5, 2.5, 4.0];
+
+// Corrección Señal 4: Número suelto con nombre (la nota mínima ya no está escondida en una comparación)
+const NOTA_MINIMA = 3.0;
+
+// Corrección Señal 4: Nombre descriptivo (antes: d)
+const notasDelCurso = [4.5, 3.5, 2.5, 4.0];
 
 // Corrección Señal 2: Separación de Lógica (calcula sin saber de HTTP)
 function calcularPromedio(notas) {
@@ -16,7 +21,8 @@ function responder(res, codigo, datos) {
     res.end(JSON.stringify(datos, null, 2));
 }
 
-const s = http.createServer((req, res) => {
+// Corrección Señal 4: Nombre descriptivo (antes: s)
+const servidor = http.createServer((req, res) => {
     if (req.url === '/salud') {
         return responder(res, 200, { estado: 'ok' });
     }
@@ -29,11 +35,12 @@ const s = http.createServer((req, res) => {
     }
 
     if (req.url === '/notas') {
-        let p = calcularPromedio(d);
-        return responder(res, 200, { promedio: p, aprobado: p >= 3.0 });
+        // Corrección Señal 4: Nombre descriptivo (antes: p) y uso de la constante (antes: 3.0 suelto)
+        let promedio = calcularPromedio(notasDelCurso);
+        return responder(res, 200, { promedio: promedio, aprobado: promedio >= NOTA_MINIMA });
     }
 
     return responder(res, 404, { error: 'Ruta no encontrada' });
 });
 
-s.listen(80)
+servidor.listen(80);
