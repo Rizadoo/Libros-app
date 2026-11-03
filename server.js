@@ -21,6 +21,18 @@ function responder(res, codigo, datos) {
     res.end(JSON.stringify(datos, null, 2));
 }
 
+// Corrección Señal 3: Responsabilidad Única (Funciones auxiliares)
+function estaAprobado(promedio) {
+    return promedio >= NOTA_MINIMA;
+}
+
+function obtenerDatosEquipo() {
+    return {
+        equipo: 'Equipo 67',
+        integrantes: ['Jhon Lara', 'Marcos Montenegro', 'Melanie Bradford']
+    };
+}
+
 // Corrección Señal 4: Nombre descriptivo (antes: s)
 const servidor = http.createServer((req, res) => {
     if (req.url === '/salud') {
@@ -28,16 +40,13 @@ const servidor = http.createServer((req, res) => {
     }
 
     if (req.url === '/equipo') {
-        return responder(res, 200, {
-            equipo: 'Equipo 67',
-            integrantes: ['Jhon Lara', 'Marcos Montenegro', 'Melanie Bradford']
-        });
+        return responder(res, 200, obtenerDatosEquipo());
     }
 
     if (req.url === '/notas') {
-        // Corrección Señal 4: Nombre descriptivo (antes: p) y uso de la constante (antes: 3.0 suelto)
-        let promedio = calcularPromedio(notasDelCurso);
-        return responder(res, 200, { promedio: promedio, aprobado: promedio >= NOTA_MINIMA });
+        const promedio = calcularPromedio(notasDelCurso);
+        const aprobado = estaAprobado(promedio);
+        return responder(res, 200, { promedio: promedio, aprobado: aprobado });
     }
 
     return responder(res, 404, { error: 'Ruta no encontrada' });
