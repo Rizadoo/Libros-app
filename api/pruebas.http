@@ -1,0 +1,66 @@
+### ==========================================================
+### Pruebas de la API Libros CUC (REST Client / VS Code)
+### Asegúrate de tener la API corriendo: cd api && npm run dev
+### ==========================================================
+
+@baseUrl = http://localhost:3000
+
+### 1. Verificar estado de salud de la API
+GET {{baseUrl}}/salud
+
+###
+
+### 2. Listar todos los libros del catálogo
+GET {{baseUrl}}/libros
+
+###
+
+### 3. Filtrar libros por categoría (Ingeniería)
+GET {{baseUrl}}/libros?categoria=Ingeniería
+
+###
+
+### 4. Obtener resumen estadístico calculado
+GET {{baseUrl}}/libros/resumen
+
+###
+
+### 5. Consultar un libro específico por ID (Stewart)
+GET {{baseUrl}}/libros/book-1
+
+###
+
+### 6. Probar validación del servidor: Error 400 (Título muy corto)
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "Ab",
+  "autor": "Autor Prueba"
+}
+
+###
+
+### 7. Probar validación del servidor: Error 400 (Falta autor)
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "Compiladores y Lenguajes"
+}
+
+###
+
+### 8. Crear libro exitoso: Código 201 Created
+POST {{baseUrl}}/libros
+Content-Type: application/json
+
+{
+  "titulo": "Inteligencia Artificial: Un Enfoque Moderno",
+  "autor": "Stuart Russell & Peter Norvig",
+  "categoria": "Ingeniería",
+  "edicion": "4ta Edición",
+  "facultad": "Ingeniería de Sistemas",
+  "propietario": "Jhon Lara (Estudiante)",
+  "descripcion": "Libro de referencia global en algoritmos de búsqueda y aprendizaje automático."
+}
