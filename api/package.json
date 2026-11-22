@@ -1,0 +1,28 @@
+{
+  "name": "libros-cuc-api",
+  "version": "1.0.0",
+  "description": "API REST para la plataforma de intercambio y préstamo de libros de la Universidad de la Costa (CUC)",
+  "main": "src/servidor.js",
+  "scripts": {
+    "start": "node src/servidor.js",
+    "dev": "node --watch src/servidor.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "cuc",
+    "libros",
+    "api",
+    "express",
+    "node"
+  ],
+  "author": "Equipo 67 - CUC",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.1"
+  }
+}
